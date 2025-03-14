@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Earth & Mars Orbit Animation</title>
+<link rel="icon" type="image/x-icon" href="img/logo_2.ico" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="css/news.css" />
+</head>
+
+<body>
+<canvas id="orbitCanvas"></canvas>
+<!-- RemyanCalendar button -->
+<button id="calendarButton" onclick="goToRemyanCalendar()">
+  <img src="img/botton_c2.png" alt="Remyan Calendar Button">
+</button>
+
+  <!-- Sidebar Button -->
+  <button id="sidebarButton">
+    <img src="img/botton_c2.png" alt="Sidebar Button">
+  </button>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <h2 style="color:white; text-align:center;"><img src="img/5.png" style="width: 75%;"></img><br />Menu <hr /></h2>
+    <div style="color:white; padding-left:20px;">
+        <div class="menu-item">
+      <p><a href="pages/solar-system.html">Full Solar-System</a></p>
+        </div>
+        <div class="menu-item">
+      <p><a href="pages/nasa.html"><img src="img/NASA.png" style="width: 75%;"></img></a></p>
+        </div>
+        <div class="menu-item">
+      <p><a href="pages/spacex.html"><img src="img/SpaceX.png" style="width: 75%;"></img></a></p>
+        </div>
+        <div class="menu-item">
+      <p><a href="pages/r-space.html"><img src="img/r-space.png" style="width: 75%;"></img></a></p>
+        </div>
+        <div class="menu-item">
+      <p><a href="pages/library.html"><img src="img/library.png" style="width: 75%;"></img></a></p>
+        </div>
+        <div class="menu-item">
+      <p><a href="https://www.github.com/The-Outsider-97"><img src="img/github.png" style="width: 75%;"></img></a></p>
+        </div>
+    </div>
+  </div>
+
+<div id="info">
+  <strong>Earth & Mars Orbit Animation</strong><br>
+  - Earth (blue), Mars (red)<br>
+  - Opposition: Closest approach<br>
+  - Conjunction: Farthest distance<br>
+  <br>
+  Perihelion/Aphelion taken from NASA NSSDC<br>
+</div>
+
+  <!------------ Mars News Section ------------>
+  <div id="marsNews">
+    <h3>News</h3>
+    <div id="newsContainer">
+      <p>Loading news...</p>
+    </div>
+  </div>
+
+
+<div id="controls">
+  <button onclick="togglePlay()">Pause</button>
+  <button onclick="slowMotion()">Slow</button>
+  <button onclick="fastForward()">Fast</button>
+  <button onclick="zoomIn()">Zoom In</button>
+  <button onclick="zoomOut()">Zoom Out</button>
+  <br>
+  <label>Earth Date: <input type="date" id="earthDateInput"></label>
+  <button onclick="goToEarthDate()">Go</button>
+  <button onclick="toggleRealTime()">Real-Time</button>
+</div>
+
+<div id="details" class="tooltip">
+  <div><strong>Speed:</strong> <span id="speedDisplay">1x</span></div>
+  <div><strong>Earth Date:</strong> <span id="dateDisplay">10 - Aug - 1971</span></div>
+  <div><strong>Mars Date*:</strong> <span id="marsDateDisplay">01 - 21 - -01</span></div>
+  <div><strong>Earth Velocity:</strong> <span id="earthVelocityDisplay">0 km/s</span></div>
+  <div><strong>Mars Velocity:</strong> <span id="marsVelocityDisplay">0 km/s</span></div>
+
+  <div id="tooltipBox" class="tooltiptext">
+    <p><strong>Date format:</strong>dd/mm/yy</p>
+    <p><strong>*Mars Date:</strong> Uses the <a onclick="goToRemyanCalendar()">Remyan Calendar</a> where 01/01/01 corrolates with the landing of <a href="https://en.wikipedia.org/wiki/Mars_3">Mars 3</a> on Dec 2nd of 1971</p>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/orbit.js"></script>
+<script src="js/3d.js"></script>
+<script src="backend/server.js"></script>
+<script src="backend/news.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.157.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.157.0/examples/js/controls/OrbitControls.js"></script>
+
+
+<script>
+async function fetchEphemeris(date) {
+  try {
+    const response = await fetch(`http://localhost:3000/api/positions?date=${date}`);
+    const data = await response.json();
+
+    // Parse JSON data structure as returned by NASA API.
+    // Example structure depends on Horizons response.
+    const earthVector = data.data.result['399']['vectors'][0]; // Example, depends on format!
+    const marsVector = data.data.result['499']['vectors'][0];
+
+    return {
+      earth: { x: earthVector.x, y: earthVector.y },
+      mars: { x: marsVector.x, y: marsVector.y }
+    };
+  } catch (error) {
+    console.error('Failed to fetch ephemeris:', error);
+  }
+}
+
+async function updateWithEphemeris() {
+  const earthDate = new Date(referenceDate.getTime() + time * 86400000);
+  const formattedDate = earthDate.toISOString().split('T')[0];
+
+  const data = await fetchEphemeris(formattedDate);
+
+  if (!data) return;
+
+  ctx.clearRect(0, 0, width, height);
+
+  ctx.beginPath();
+  ctx.fillStyle = 'yellow';
+  ctx.arc(centerX, centerY, sunRadius, 0, 2 * Math.PI);
+  ctx.fill();
+
+  const earthX = data.earth.x * AU;
+  const earthY = data.earth.y * AU;
+  const marsX = data.mars.x * AU;
+  const marsY = data.mars.y * AU;
+
+  ctx.beginPath();
+  ctx.fillStyle = earthColor;
+  ctx.arc(centerX + earthX, centerY + earthY, earthRadius, 0, 2 * Math.PI);
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.fillStyle = marsColor;
+  ctx.arc(centerX + marsX, centerY + marsY, marsRadius, 0, 2 * Math.PI);
+  ctx.fill();
+
+  drawDistanceLine(centerX + earthX, centerY + earthY, centerX + marsX, centerY + marsY);
+
+  requestAnimationFrame(updateWithEphemeris);
+}
+
+//Side-bar
+    const sidebarButton = document.getElementById('sidebarButton');
+    const sidebar = document.getElementById('sidebar');
+
+    sidebarButton.addEventListener('click', (event) => {
+      event.stopPropagation(); // Prevent body click handler from firing
+      sidebar.classList.toggle('show');
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!sidebar.contains(event.target) && !sidebarButton.contains(event.target)) {
+        sidebar.classList.remove('show');
+      }
+    });
+</script>
+</body>
+</html>

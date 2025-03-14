@@ -1,0 +1,10 @@
+{
+  "signature" : {
+    "source" : "NASA/JPL Horizons API",
+    "version" : "1.0"
+  },
+
+{
+  "earth": {"x": -0.174, "y": 0.967, "z": 0.0001},
+  "mars": {"x": 1.390, "y": 0.528, "z": 0.017}
+}
