@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Earth & Mars Orbit Animation</title>
+<link rel="icon" type="image/x-icon" href="../img/logo_2.ico" />
+<link rel="stylesheet" href="../css/styles.css" />
+<link rel="stylesheet" href="../css/library.css" />
+</head>
+
+<body>
+<!-- Loading Overlay -->
+<div id="loadingOverlay">
+  <video autoplay muted loop class="loader-media">
+    <source src="../vid/loadingBook.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  <p>Loading Library...</p>
+</div>
+
+<br/><br/><br/><br/><br/><br/>
+<!-- RemyanCalendar button -->
+<button id="calendarButton" onclick="goToRemyanCalendar()">
+  <img src="../img/botton_c2.png" alt="Remyan Calendar Button">
+</button>
+
+  <!-- Sidebar Button -->
+  <button id="sidebarButton">
+    <img src="../img/botton_c2.png" alt="Sidebar Button">
+  </button>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <h2 style="color:white; text-align:center;"><a href="index.html"><img src="../img/5.png" style="width: 50%;"></img></a><br />Menu <hr /></h2>
+    <div style="color:white; padding-left:20px;">
+        <div class="menu-item">
+      <p><a href="solar-system.html">Full Solar-System</a></p>
+        </div>
+        <div class="menu-item">
+      <p><a href="nasa.html"><img src="../img/NASA.png" style="width: 75%;"></img></a></p>
+        </div>
+        <div class="menu-item">
+      <p><a href="spacex.html"><img src="../img/SpaceX.png" style="width: 75%;"></img></a></p>
+        </div>
+        <div class="menu-item">
+      <p><a href="r-space.html"><img src="../img/r-space.png" style="width: 75%;"></img></a></p>
+        </div>
+        <div class="menu-item">
+      <p><a href="library.html"><img src="../img/library.png" style="width: 75%;"></img></a></p>
+        </div>
+        <div class="menu-item">
+      <p><a href="https://www.github.com/The-Outsider-97/MarsHub"><img src="../img/github.png" style="width: 75%;"></img></a></p>
+        </div>
+    </div>
+  </div>
+
+<div id="searchContainer">
+  <input 
+    type="text" 
+    id="searchInput" 
+    placeholder="Search Mars Library..." 
+    onkeyup="handleSearch(event)"
+  />
+  <button onclick="searchLibrary()">Search</button>
+</div>
+
+  <!------------ Mars Library Section ------------>
+<div id="marsLibrary">
+  <h3>Research & Books</h3>
+  <div id="libraryContainer">
+    <p>Loading research papers and books...</p>
+  </div>
+</div>
+
+
+<div id="details" class="tooltip">
+  <div><strong>Earth Date:</strong> <span id="dateDisplay">10 - Aug - 1971</span></div>
+  <div><strong>Mars Date*:</strong> <span id="marsDateDisplay">01 - 21 - -01</span></div>
+  <div><strong>Earth Velocity:</strong> <span id="earthVelocityDisplay">0 km/s</span></div>
+  <div><strong>Mars Velocity:</strong> <span id="marsVelocityDisplay">0 km/s</span></div>
+
+  <div id="tooltipBox" class="tooltiptext">
+    <p><strong>Date format:</strong>dd/mm/yy</p>
+    <p><strong>*Mars Date:</strong> Uses the <a onclick="goToRemyanCalendar()">Remyan Calendar</a> where 01/01/01 corrolates with the landing of <a href="https://en.wikipedia.org/wiki/Mars_3">Mars 3</a> on Dec 2nd of 1971</p>
+  </div>
+</div>
+
+<script src="../backend/server.js"></script>
+<script src="../backend/library.js"></script>
+<script src="../js/MeiliSearch.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.157.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.157.0/examples/js/controls/OrbitControls.js"></script>
+
+<script>
+async function initApp() {
+  // Show loader by default
+  const loadingOverlay = document.getElementById('loadingOverlay');
+  loadingOverlay.style.display = 'flex';
+
+  // Simulate async loading (replace with real data fetch)
+  await fetchLibraryData(); // Your custom function
+  await initializeOrbitAnimation(); // Your custom function
+
+  // Hide loader after fetching data
+  loadingOverlay.style.display = 'none';
+  loadingOverlay.style.opacity = '0';
+  setTimeout(() => loadingOverlay.style.display = 'none', 500);
+}
+
+initApp();
+</script>
+
+<script>
+//Hover Tooltips
+div.setAttribute('title', item.description || 'No description available.');
+</script>
+
+<script>
+//Side-bar
+    const sidebarButton = document.getElementById('sidebarButton');
+    const sidebar = document.getElementById('sidebar');
+
+    sidebarButton.addEventListener('click', (event) => {
+      event.stopPropagation(); // Prevent body click handler from firing
+      sidebar.classList.toggle('show');
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!sidebar.contains(event.target) && !sidebarButton.contains(event.target)) {
+        sidebar.classList.remove('show');
+      }
+    });
+</script>
+
+</body>
+</html>
