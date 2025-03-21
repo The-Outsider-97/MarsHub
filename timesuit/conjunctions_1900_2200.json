@@ -1,0 +1,830 @@
+[
+  {
+    "startDate": "1900-02-23",
+    "endDate": "1900-03-12",
+    "distanceAU": 2.67,
+    "distanceKM": 399800000
+  },
+  {
+    "startDate": "1902-04-02",
+    "endDate": "1902-04-18",
+    "distanceAU": 2.66,
+    "distanceKM": 398200000
+  },
+  {
+    "startDate": "1904-05-11",
+    "endDate": "1904-05-27",
+    "distanceAU": 2.68,
+    "distanceKM": 400600000
+  },
+  {
+    "startDate": "1906-06-18",
+    "endDate": "1906-07-04",
+    "distanceAU": 2.67,
+    "distanceKM": 399500000
+  },
+  {
+    "startDate": "1908-07-25",
+    "endDate": "1908-08-10",
+    "distanceAU": 2.67,
+    "distanceKM": 399900000
+  },
+  {
+    "startDate": "1910-09-01",
+    "endDate": "1910-09-18",
+    "distanceAU": 2.66,
+    "distanceKM": 398100000
+  },
+  {
+    "startDate": "1912-10-08",
+    "endDate": "1912-10-25",
+    "distanceAU": 2.68,
+    "distanceKM": 400900000
+  },
+  {
+    "startDate": "1914-11-14",
+    "endDate": "1914-12-01",
+    "distanceAU": 2.66,
+    "distanceKM": 398300000
+  },
+  {
+    "startDate": "1917-01-20",
+    "endDate": "1917-02-06",
+    "distanceAU": 2.67,
+    "distanceKM": 399400000
+  },
+  {
+    "startDate": "1919-02-27",
+    "endDate": "1919-03-16",
+    "distanceAU": 2.67,
+    "distanceKM": 399800000
+  },
+  {
+    "startDate": "1921-04-05",
+    "endDate": "1921-04-22",
+    "distanceAU": 2.66,
+    "distanceKM": 398200000
+  },
+  {
+    "startDate": "1923-05-12",
+    "endDate": "1923-05-29",
+    "distanceAU": 2.68,
+    "distanceKM": 400700000
+  },
+  {
+    "startDate": "1925-06-19",
+    "endDate": "1925-07-06",
+    "distanceAU": 2.67,
+    "distanceKM": 399600000
+  },
+  {
+    "startDate": "1927-07-26",
+    "endDate": "1927-08-12",
+    "distanceAU": 2.67,
+    "distanceKM": 399900000
+  },
+  {
+    "startDate": "1929-09-01",
+    "endDate": "1929-09-18",
+    "distanceAU": 2.66,
+    "distanceKM": 398100000
+  },
+  {
+    "startDate": "1931-10-08",
+    "endDate": "1931-10-25",
+    "distanceAU": 2.68,
+    "distanceKM": 400900000
+  },
+  {
+    "startDate": "1933-11-15",
+    "endDate": "1933-12-02",
+    "distanceAU": 2.66,
+    "distanceKM": 398300000
+  },
+  {
+    "startDate": "1936-01-21",
+    "endDate": "1936-02-07",
+    "distanceAU": 2.67,
+    "distanceKM": 399400000
+  },
+  {
+    "startDate": "1938-02-28",
+    "endDate": "1938-03-17",
+    "distanceAU": 2.67,
+    "distanceKM": 399800000
+  },
+  {
+    "startDate": "1940-04-05",
+    "endDate": "1940-04-22",
+    "distanceAU": 2.66,
+    "distanceKM": 398200000
+  },
+  {
+    "startDate": "1942-05-12",
+    "endDate": "1942-05-29",
+    "distanceAU": 2.68,
+    "distanceKM": 400700000
+  },
+  {
+    "startDate": "1944-06-19",
+    "endDate": "1944-07-06",
+    "distanceAU": 2.67,
+    "distanceKM": 399600000
+  },
+  {
+    "startDate": "1946-07-26",
+    "endDate": "1946-08-12",
+    "distanceAU": 2.67,
+    "distanceKM": 399900000
+  },
+  {
+    "startDate": "1948-09-01",
+    "endDate": "1948-09-18",
+    "distanceAU": 2.66,
+    "distanceKM": 398100000
+  },
+  {
+    "startDate": "1951-08-21",
+    "endDate": "1951-09-07",
+    "distanceAU": 2.68,
+    "distanceKM": 400800000
+  },
+  {
+    "startDate": "1953-09-27",
+    "endDate": "1953-10-14",
+    "distanceAU": 2.66,
+    "distanceKM": 398200000
+  },
+  {
+    "startDate": "1955-11-04",
+    "endDate": "1955-11-21",
+    "distanceAU": 2.68,
+    "distanceKM": 400900000
+  },
+  {
+    "startDate": "1958-01-11",
+    "endDate": "1958-01-28",
+    "distanceAU": 2.66,
+    "distanceKM": 398100000
+  },
+  {
+    "startDate": "1960-02-18",
+    "endDate": "1960-03-07",
+    "distanceAU": 2.67,
+    "distanceKM": 399400000
+  },
+  {
+    "startDate": "1962-03-28",
+    "endDate": "1962-04-14",
+    "distanceAU": 2.67,
+    "distanceKM": 399800000
+  },
+  {
+    "startDate": "1964-05-05",
+    "endDate": "1964-05-22",
+    "distanceAU": 2.66,
+    "distanceKM": 398300000
+  },
+  {
+    "startDate": "1966-06-12",
+    "endDate": "1966-06-29",
+    "distanceAU": 2.68,
+    "distanceKM": 400700000
+  },
+  {
+    "startDate": "1968-07-19",
+    "endDate": "1968-08-05",
+    "distanceAU": 2.67,
+    "distanceKM": 399600000
+  },
+  {
+    "startDate": "1970-08-26",
+    "endDate": "1970-09-12",
+    "distanceAU": 2.67,
+    "distanceKM": 399900000
+  },
+  {
+    "startDate": "1972-09-05",
+    "endDate": "1972-09-22",
+    "distanceAU": 2.68,
+    "distanceKM": 400800000
+  },
+  {
+    "startDate": "1974-10-14",
+    "endDate": "1974-10-30",
+    "distanceAU": 2.66,
+    "distanceKM": 398200000
+  },
+  {
+    "startDate": "1976-11-22",
+    "endDate": "1976-12-09",
+    "distanceAU": 2.67,
+    "distanceKM": 399400000
+  },
+  {
+    "startDate": "1979-01-02",
+    "endDate": "1979-01-18",
+    "distanceAU": 2.67,
+    "distanceKM": 399900000
+  },
+  {
+    "startDate": "1981-02-10",
+    "endDate": "1981-02-26",
+    "distanceAU": 2.66,
+    "distanceKM": 398100000
+  },
+  {
+    "startDate": "1983-03-22",
+    "endDate": "1983-04-07",
+    "distanceAU": 2.66,
+    "distanceKM": 398000000
+  },
+  {
+    "startDate": "1985-04-29",
+    "endDate": "1985-05-15",
+    "distanceAU": 2.68,
+    "distanceKM": 400700000
+  },
+  {
+    "startDate": "1987-06-05",
+    "endDate": "1987-06-21",
+    "distanceAU": 2.67,
+    "distanceKM": 399600000
+  },
+  {
+    "startDate": "1989-07-12",
+    "endDate": "1989-07-29",
+    "distanceAU": 2.67,
+    "distanceKM": 399800000
+  },
+  {
+    "startDate": "1991-08-19",
+    "endDate": "1991-09-05",
+    "distanceAU": 2.66,
+    "distanceKM": 398200000
+  },
+  {
+    "startDate": "1993-09-26",
+    "endDate": "1993-10-12",
+    "distanceAU": 2.68,
+    "distanceKM": 400900000
+  },
+  {
+    "startDate": "1995-11-03",
+    "endDate": "1995-11-20",
+    "distanceAU": 2.66,
+    "distanceKM": 398100000
+  },
+  {
+    "startDate": "1997-12-13",
+    "endDate": "1997-12-30",
+    "distanceAU": 2.67,
+    "distanceKM": 399400000
+  },
+  {
+    "startDate": "2000-01-21",
+    "endDate": "2000-02-07",
+    "distanceAU": 2.67,
+    "distanceKM": 399800000
+  },
+  {
+    "startDate": "2002-03-02",
+    "endDate": "2002-03-19",
+    "distanceAU": 2.66,
+    "distanceKM": 398300000
+  },
+  {
+    "startDate": "2004-04-08",
+    "endDate": "2004-04-25",
+    "distanceAU": 2.66,
+    "distanceKM": 398000000
+  },
+  {
+    "startDate": "2006-05-15",
+    "endDate": "2006-06-01",
+    "distanceAU": 2.68,
+    "distanceKM": 400600000
+  },
+  {
+    "startDate": "2008-06-22",
+    "endDate": "2008-07-09",
+    "distanceAU": 2.67,
+    "distanceKM": 399500000
+  },
+  {
+    "startDate": "2010-07-29",
+    "endDate": "2010-08-15",
+    "distanceAU": 2.67,
+    "distanceKM": 399900000
+  },
+  {
+    "startDate": "2012-09-05",
+    "endDate": "2012-09-22",
+    "distanceAU": 2.66,
+    "distanceKM": 398200000
+  },
+  {
+    "startDate": "2014-10-12",
+    "endDate": "2014-10-29",
+    "distanceAU": 2.68,
+    "distanceKM": 400800000
+  },
+  {
+    "startDate": "2016-11-19",
+    "endDate": "2016-12-06",
+    "distanceAU": 2.66,
+    "distanceKM": 398100000
+  },
+  {
+    "startDate": "2019-01-01",
+    "endDate": "2019-01-17",
+    "distanceAU": 2.67,
+    "distanceKM": 399400000
+  },
+  {
+    "startDate": "2021-02-08",
+    "endDate": "2021-02-25",
+    "distanceAU": 2.67,
+    "distanceKM": 399800000
+  },
+  {
+    "startDate": "2023-03-16",
+    "endDate": "2023-04-02",
+    "distanceAU": 2.66,
+    "distanceKM": 398300000
+  },
+  {
+    "startDate": "2025-04-24",
+    "endDate": "2025-05-11",
+    "distanceAU": 2.66,
+    "distanceKM": 398000000
+  },
+  {
+    "startDate": "2027-05-31",
+    "endDate": "2027-06-17",
+    "distanceAU": 2.68,
+    "distanceKM": 400600000
+  },
+  {
+    "startDate": "2029-07-07",
+    "endDate": "2029-07-24",
+    "distanceAU": 2.67,
+    "distanceKM": 399500000
+  },
+  {
+    "startDate": "2031-08-14",
+    "endDate": "2031-08-31",
+    "distanceAU": 2.67,
+    "distanceKM": 399900000
+  },
+  {
+    "startDate": "2033-09-20",
+    "endDate": "2033-10-07",
+    "distanceAU": 2.66,
+    "distanceKM": 398200000
+  },
+  {
+    "startDate": "2035-10-27",
+    "endDate": "2035-11-13",
+    "distanceAU": 2.68,
+    "distanceKM": 400800000
+  },
+  {
+    "startDate": "2050-07-20",
+    "endDate": "2050-08-06",
+    "distanceAU": 2.67,
+    "distanceKM": 399500000
+  },
+  {
+    "startDate": "2052-08-26",
+    "endDate": "2052-09-12",
+    "distanceAU": 2.68,
+    "distanceKM": 400800000
+  },
+  {
+    "startDate": "2054-10-03",
+    "endDate": "2054-10-20",
+    "distanceAU": 2.66,
+    "distanceKM": 398200000
+  },
+  {
+    "startDate": "2056-11-10",
+    "endDate": "2056-11-27",
+    "distanceAU": 2.67,
+    "distanceKM": 399400000
+  },
+  {
+    "startDate": "2058-12-17",
+    "endDate": "2059-01-03",
+    "distanceAU": 2.67,
+    "distanceKM": 399800000
+  },
+  {
+    "startDate": "2061-01-25",
+    "endDate": "2061-02-11",
+    "distanceAU": 2.66,
+    "distanceKM": 398100000
+  },
+  {
+    "startDate": "2063-03-05",
+    "endDate": "2063-03-22",
+    "distanceAU": 2.68,
+    "distanceKM": 400900000
+  },
+  {
+    "startDate": "2065-04-12",
+    "endDate": "2065-04-29",
+    "distanceAU": 2.66,
+    "distanceKM": 398300000
+  },
+  {
+    "startDate": "2067-05-18",
+    "endDate": "2067-06-04",
+    "distanceAU": 2.67,
+    "distanceKM": 399400000
+  },
+  {
+    "startDate": "2069-06-24",
+    "endDate": "2069-07-11",
+    "distanceAU": 2.67,
+    "distanceKM": 399800000
+  },
+  {
+    "startDate": "2071-08-01",
+    "endDate": "2071-08-18",
+    "distanceAU": 2.66,
+    "distanceKM": 398200000
+  },
+  {
+    "startDate": "2198-08-01",
+    "endDate": "2198-08-18",
+    "distanceAU": 2.68,
+    "distanceKM": 400800000
+  },
+  {
+    "startDate": "2073-09-08",
+    "endDate": "2073-09-25",
+    "distanceAU": 2.68,
+    "distanceKM": 400700000
+  },
+  {
+    "startDate": "2075-10-16",
+    "endDate": "2075-11-02",
+    "distanceAU": 2.66,
+    "distanceKM": 398200000
+  },
+  {
+    "startDate": "2077-11-23",
+    "endDate": "2077-12-10",
+    "distanceAU": 2.67,
+    "distanceKM": 399400000
+  },
+  {
+    "startDate": "2080-01-03",
+    "endDate": "2080-01-20",
+    "distanceAU": 2.67,
+    "distanceKM": 399900000
+  },
+  {
+    "startDate": "2082-02-11",
+    "endDate": "2082-02-27",
+    "distanceAU": 2.66,
+    "distanceKM": 398100000
+  },
+  {
+    "startDate": "2084-03-22",
+    "endDate": "2084-04-08",
+    "distanceAU": 2.66,
+    "distanceKM": 398000000
+  },
+  {
+    "startDate": "2086-04-29",
+    "endDate": "2086-05-15",
+    "distanceAU": 2.68,
+    "distanceKM": 400700000
+  },
+  {
+    "startDate": "2088-06-05",
+    "endDate": "2088-06-21",
+    "distanceAU": 2.67,
+    "distanceKM": 399600000
+  },
+  {
+    "startDate": "2090-07-12",
+    "endDate": "2090-07-29",
+    "distanceAU": 2.67,
+    "distanceKM": 399800000
+  },
+  {
+    "startDate": "2092-08-19",
+    "endDate": "2092-09-05",
+    "distanceAU": 2.66,
+    "distanceKM": 398200000
+  },
+  {
+    "startDate": "2094-09-26",
+    "endDate": "2094-10-12",
+    "distanceAU": 2.68,
+    "distanceKM": 400900000
+  },
+  {
+    "startDate": "2096-11-03",
+    "endDate": "2096-11-20",
+    "distanceAU": 2.66,
+    "distanceKM": 398100000
+  },
+  {
+    "startDate": "2098-12-13",
+    "endDate": "2098-12-30",
+    "distanceAU": 2.67,
+    "distanceKM": 399400000
+  },
+  {
+    "startDate": "2101-01-21",
+    "endDate": "2101-02-07",
+    "distanceAU": 2.67,
+    "distanceKM": 399800000
+  },
+  {
+    "startDate": "2103-03-02",
+    "endDate": "2103-03-19",
+    "distanceAU": 2.66,
+    "distanceKM": 398300000
+  },
+  {
+    "startDate": "2105-04-08",
+    "endDate": "2105-04-25",
+    "distanceAU": 2.66,
+    "distanceKM": 398000000
+  },
+  {
+    "startDate": "2107-05-15",
+    "endDate": "2107-06-01",
+    "distanceAU": 2.68,
+    "distanceKM": 400600000
+  },
+  {
+    "startDate": "2109-06-22",
+    "endDate": "2109-07-09",
+    "distanceAU": 2.67,
+    "distanceKM": 399500000
+  },
+  {
+    "startDate": "2111-07-29",
+    "endDate": "2111-08-15",
+    "distanceAU": 2.67,
+    "distanceKM": 399900000
+  },
+  {
+    "startDate": "2113-09-05",
+    "endDate": "2113-09-22",
+    "distanceAU": 2.66,
+    "distanceKM": 398200000
+  },
+  {
+    "startDate": "2115-10-12",
+    "endDate": "2115-10-29",
+    "distanceAU": 2.68,
+    "distanceKM": 400800000
+  },
+  {
+    "startDate": "2117-11-19",
+    "endDate": "2117-12-06",
+    "distanceAU": 2.66,
+    "distanceKM": 398100000
+  },
+  {
+    "startDate": "2120-01-01",
+    "endDate": "2120-01-17",
+    "distanceAU": 2.67,
+    "distanceKM": 399400000
+  },
+  {
+    "startDate": "2122-02-08",
+    "endDate": "2122-02-25",
+    "distanceAU": 2.67,
+    "distanceKM": 399800000
+  },
+  {
+    "startDate": "2124-03-16",
+    "endDate": "2124-04-02",
+    "distanceAU": 2.66,
+    "distanceKM": 398300000
+  },
+  {
+    "startDate": "2126-04-24",
+    "endDate": "2126-05-11",
+    "distanceAU": 2.66,
+    "distanceKM": 398000000
+  },
+  {
+    "startDate": "2128-05-31",
+    "endDate": "2128-06-17",
+    "distanceAU": 2.68,
+    "distanceKM": 400600000
+  },
+  {
+    "startDate": "2130-07-07",
+    "endDate": "2130-07-24",
+    "distanceAU": 2.67,
+    "distanceKM": 399500000
+  },
+  {
+    "startDate": "2132-08-14",
+    "endDate": "2132-08-31",
+    "distanceAU": 2.67,
+    "distanceKM": 399900000
+  },
+  {
+    "startDate": "2134-09-20",
+    "endDate": "2134-10-07",
+    "distanceAU": 2.66,
+    "distanceKM": 398200000
+  },
+  {
+    "startDate": "2136-10-27",
+    "endDate": "2136-11-13",
+    "distanceAU": 2.68,
+    "distanceKM": 400800000
+  },
+  {
+    "startDate": "2138-12-04",
+    "endDate": "2138-12-21",
+    "distanceAU": 2.66,
+    "distanceKM": 398100000
+  },
+  {
+    "startDate": "2141-01-14",
+    "endDate": "2141-01-30",
+    "distanceAU": 2.67,
+    "distanceKM": 399400000
+  },
+  {
+    "startDate": "2143-02-21",
+    "endDate": "2143-03-10",
+    "distanceAU": 2.67,
+    "distanceKM": 399800000
+  },
+  {
+    "startDate": "2145-03-30",
+    "endDate": "2145-04-16",
+    "distanceAU": 2.66,
+    "distanceKM": 398300000
+  },
+  {
+    "startDate": "2147-05-06",
+    "endDate": "2147-05-23",
+    "distanceAU": 2.66,
+    "distanceKM": 398000000
+  },
+  {
+    "startDate": "2149-06-13",
+    "endDate": "2149-06-30",
+    "distanceAU": 2.68,
+    "distanceKM": 400600000
+  },
+  {
+    "startDate": "2151-07-20",
+    "endDate": "2151-08-06",
+    "distanceAU": 2.67,
+    "distanceKM": 399500000
+  },
+  {
+    "startDate": "2153-08-27",
+    "endDate": "2153-09-13",
+    "distanceAU": 2.67,
+    "distanceKM": 399900000
+  },
+  {
+    "startDate": "2155-10-04",
+    "endDate": "2155-10-21",
+    "distanceAU": 2.66,
+    "distanceKM": 398200000
+  },
+  {
+    "startDate": "2157-11-11",
+    "endDate": "2157-11-28",
+    "distanceAU": 2.68,
+    "distanceKM": 400800000
+  },
+  {
+    "startDate": "2159-12-19",
+    "endDate": "2159-01-05",
+    "distanceAU": 2.66,
+    "distanceKM": 398100000
+  },
+  {
+    "startDate": "2162-01-28",
+    "endDate": "2162-02-14",
+    "distanceAU": 2.67,
+    "distanceKM": 399400000
+  },
+  {
+    "startDate": "2164-03-08",
+    "endDate": "2164-03-25",
+    "distanceAU": 2.67,
+    "distanceKM": 399800000
+  },
+  {
+    "startDate": "2166-04-15",
+    "endDate": "2166-05-02",
+    "distanceAU": 2.66,
+    "distanceKM": 398300000
+  },
+  {
+    "startDate": "2168-05-22",
+    "endDate": "2168-06-08",
+    "distanceAU": 2.66,
+    "distanceKM": 398000000
+  },
+  {
+    "startDate": "2170-06-29",
+    "endDate": "2170-07-16",
+    "distanceAU": 2.68,
+    "distanceKM": 400600000
+  },
+  {
+    "startDate": "2172-08-06",
+    "endDate": "2172-08-23",
+    "distanceAU": 2.67,
+    "distanceKM": 399500000
+  },
+  {
+    "startDate": "2174-09-13",
+    "endDate": "2174-09-30",
+    "distanceAU": 2.67,
+    "distanceKM": 399900000
+  },
+  {
+    "startDate": "2176-10-20",
+    "endDate": "2176-11-06",
+    "distanceAU": 2.66,
+    "distanceKM": 398200000
+  },
+  {
+    "startDate": "2178-11-27",
+    "endDate": "2178-12-14",
+    "distanceAU": 2.68,
+    "distanceKM": 400800000
+  },
+  {
+    "startDate": "2181-01-04",
+    "endDate": "2181-01-21",
+    "distanceAU": 2.66,
+    "distanceKM": 398100000
+  },
+  {
+    "startDate": "2183-02-11",
+    "endDate": "2183-02-28",
+    "distanceAU": 2.67,
+    "distanceKM": 399400000
+  },
+  {
+    "startDate": "2185-03-22",
+    "endDate": "2185-04-08",
+    "distanceAU": 2.67,
+    "distanceKM": 399800000
+  },
+  {
+    "startDate": "2187-04-29",
+    "endDate": "2187-05-16",
+    "distanceAU": 2.66,
+    "distanceKM": 398300000
+  },
+  {
+    "startDate": "2189-06-06",
+    "endDate": "2189-06-23",
+    "distanceAU": 2.66,
+    "distanceKM": 398000000
+  },
+  {
+    "startDate": "2191-07-13",
+    "endDate": "2191-07-30",
+    "distanceAU": 2.68,
+    "distanceKM": 400600000
+  },
+  {
+    "startDate": "2193-08-20",
+    "endDate": "2193-09-06",
+    "distanceAU": 2.67,
+    "distanceKM": 399500000
+  },
+  {
+    "startDate": "2195-09-27",
+    "endDate": "2195-10-14",
+    "distanceAU": 2.67,
+    "distanceKM": 399900000
+  },
+  {
+    "startDate": "2197-11-04",
+    "endDate": "2197-11-21",
+    "distanceAU": 2.66,
+    "distanceKM": 398200000
+  },
+  {
+    "startDate": "2200-09-07",
+    "endDate": "2200-09-24",
+    "distanceAU": 2.66,
+    "distanceKM": 398200000
+  }
+]
