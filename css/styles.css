@@ -1,0 +1,261 @@
+body {
+  margin: 0;
+  background: #000 url("img/starfield_1.png") center/cover no-repeat;
+  overflow: hidden;
+  color: white;
+  font-family: Times New Roman, sans-serif;
+}
+
+canvas {
+  display: block;
+  background-color: transparent;
+}
+
+#info, #controls, #details {
+  background-color: transparent;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+#info {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 240px;
+  line-height: 1.4;
+}
+
+#controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#controls button, #controls input {
+  background: linear-gradient(145deg, #1a1a1a, #222);
+  color: inherit;
+  border: 1px solid #555;
+  padding: 8px 14px;
+  margin: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+#controls button:hover, #controls input:hover {
+  background: linear-gradient(145deg, #222, #2a2a2a);
+  transform: translateY(-2px);
+}
+
+#details {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 300px;
+  line-height: 1.6;
+}
+
+.tippy-box[data-theme~='light-border'] {
+  display: inline-block;
+  width: max-content;
+  max-width: 100%;
+  border: 1px solid #ccc;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  font-family: 'Times New Roman', sans-serif;
+  font-size: 14px;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.3s, opacity 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+}
+
+.tippy-box[data-placement^='bottom'] > .tippy-arrow::before {
+  border-bottom-color: rgba(0, 0, 0, 0.85);
+}
+  
+.tippy-box[data-theme~='light-border'] img {
+  display: block;
+  margin: 0 auto 8px;
+  border-radius: 4px;
+  width: 100%;
+  height: auto;
+}
+
+.tippy-box[data-theme~='light-border'] a {
+  color: #00adee;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.tippy-box[data-theme~='light-border'] a:hover {
+  text-decoration: underline;
+}
+
+#calendarButton {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  animation: pulse 3s infinite;
+}
+
+#calendarButton img {
+  width: 60px;
+  height: 60px;
+  transition: transform 0.3s;
+}
+
+#calendarButton:hover img {
+  transform: scale(1.1) rotate(270deg);
+}
+
+#sidebarButton {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s;
+  animation: pulse 3s infinite;
+  z-index: 1;
+}
+
+#sidebarButton img {
+  width: 60px;
+  height: 60px;
+  transition: transform 0.3s;
+}
+
+#sidebarButton:hover img {
+  transform: scale(1.1) rotate(270deg);
+}
+
+#sidebar {
+  position: fixed;
+  top: 0;
+  right: -325px;
+  width: 300px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  padding: 10px;
+  overflow-y: auto;
+  transition: right 0.5s ease;
+  z-index: 10;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#sidebar.show {
+  right: 0;
+}
+
+#sidebar > h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#sidebar > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding-bottom: 40px;
+}
+
+.menu-item {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-item p {
+  margin: 0;
+  padding: 0;
+}
+
+.menu-item a {
+  display: inline-block;
+  width: 100%;
+  color: inherit;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.menu-item a:hover {
+  transform: scale(1.035);
+  color: inherit;
+}
+
+.menu-item a:active {
+  transform: scale(1.1);
+}
+
+.sidebar-footer {
+  font-size: 12px;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-height: 1080px) {
+  .menu-item p {
+    display: none;
+  }
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+@keyframes pulse {
+  0% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.1); }
+  100% { transform: translateX(-50%) scale(1); }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  font-weight: normal;
+  font-family: 'Butler Bold';
+}
+
+a:hover {
+  color: inherit;
+}
+
+a:active {
+  transform: scale(1.1);
+}
