@@ -1,0 +1,51 @@
+  /*CLOCK*/
+.container {
+  margin-top: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 90px;
+}
+
+.left-panel, .right-panel {
+  flex: 1;
+  padding: 20px;
+  min-height: 100%;
+}
+
+.planet img {
+  width: 500px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.digital-clocks {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.digital-time {
+  font-size: 2.5em;
+  font-family: monospace;
+}
+
+.digital-time.small {
+  font-size: 1.5em;
+}
+
+.labels {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.labels span {
+  margin: 0 30px;
+  font-size: 0.8em;
+}
+
+#analog-clock {
+  display: block;
+  margin: 0 auto;
+}
