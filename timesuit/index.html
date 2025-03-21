@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Earth & Mars Orbit Animation</title>
+<link rel="icon" type="image/x-icon" href="../img/logo_2.ico" />
+<link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css" />
+<link rel="stylesheet" href="../css/styles.css" />
+<link rel="stylesheet" href="css/marsClock.css" />
+<link rel="stylesheet" href="css/marsCalendar.css" />
+<link rel="stylesheet" href="css/converter.css" />
+
+<style>
+  /*INDEX*/
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#siteTitle {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  font-family: Butler, sans-serif;
+  font-size: 1.5rem;
+  color: white;
+  z-index: 5;
+}
+
+  .main-sections {
+  display: flex;
+  justify-content: space-between; /* Space sections equally */
+  align-items: flex-start;
+  flex-direction: row; /* Horizontal by default */
+  width: 100%;
+  padding: 20px 5%;
+  box-sizing: border-box;
+  margin-top: 90px; /* Adjust to stay below the Remyan Calendar button */
+  margin-bottom: 90px; /* To avoid overlapping the footer */
+  gap: 20px;
+  flex: 1 0 auto;
+}
+
+.main-sections section {
+  flex: 1;
+  margin-bottom: 20px;
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 20px;
+  border-radius: 10px;
+  color: #fefefe;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  font-family: Times New Roman, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.main-sections section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+}
+
+#infoSidebarButton {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s;
+  animation: pulse 3s infinite;
+  z-index: 1;
+}
+
+#infoSidebarButton img {
+  width: 60px;
+  height: 60px;
+  transition: transform 0.3s;
+}
+
+#infoSidebarButton:hover img {
+  transform: scale(1.1) rotate(-270deg);
+}
+
+#infoSidebar {
+  position: fixed;
+  top: 0;
+  left: -325px; /* Starts hidden */
+  width: 300px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  padding: 10px;
+  overflow-y: auto;
+  transition: left 0.5s ease;
+  z-index: 10;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+#infoSidebar.show {
+  left: 0;
+}
+
+footer {
+  flex-shrink: 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: #fefefe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Times New Roman, sans-serif;
+  font-size: 14px;
+}
+
+/* Portrait (vertical) layout */
+@media screen and (orientation: portrait) {
+  .main-sections {
+    flex-direction: column; /* Stack vertically */
+    align-items: center; /* Center sections horizontally */
+  }
+
+  .main-sections section {
+    width: 90%; /* Make sections wider if needed */
+    margin-bottom: 20px; /* Space between vertically stacked sections */
+  }
+}
+</style>
+</head>
+<body>
+<div id="siteTitle"><img src="../img/5.png" style="height: 1.5rem;"></img>Marshub Timesuit</div>
+
+<!-- RemyanCalendar button -->
+<button id="calendarButton" onclick="goToRemyanCalendar()"  data-tippy-content="Remyan Calendar">
+  <img src="../img/botton_c2.png" alt="Remyan Calendar Button">
+</button>
+
+  <!-- Sidebar Button -->
+  <button id="sidebarButton" data-tippy-content="Open Menu">
+    <img src="../img/botton_c2.png" alt="Sidebar Button">
+  </button>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <h2 style="color:white; text-align:center;"><a href="../pages/index.html"><img src="../img/5.png" style="width: 50%;"></img></a><br />Menu <hr /></h2>
+    <div style="color:white; padding-left:20px;">
+        <div class="menu-item">
+      <p><a href="solar-system.html">Full Solar-System</a></p>
+        </div>
+        <div class="menu-item">
+      <p><a href="nasa.html"><img src="../img/NASA.png" style="width: 75%;"></img></a></p>
+        </div>
+        <div class="menu-item">
+      <p><a href="spacex.html"><img src="../img/SpaceX.png" style="width: 75%;"></img></a></p>
+        </div>
+        <div class="menu-item">
+      <p><a href="r-space.html"><img src="../img/r-space.png" style="width: 75%;"></img></a></p>
+        </div>
+        <div class="menu-item">
+      <p><a href="library.html"><img src="../img/library.png" style="width: 75%;"></img></a></p>
+        </div>
+        <div class="menu-item">
+      <p><a href="https://www.github.com/The-Outsider-97/MarsHub"><img src="../img/github.png" style="width: 75%;"></img></a></p>
+        </div>
+    </div>
+  </div>
+
+  <!-- Left Sidebar Button -->
+<button id="infoSidebarButton"  data-tippy-content="Open Info Menu>
+  <img src="../img/botton_c2.png" alt="Basic Info Button">
+</button>
+
+<!-- Left Sidebar -->
+<div id="infoSidebar" class="sidebar left">
+  <h2 style="color:white; text-align:center;">Basic Info</h2>
+  <div style="color:white; padding-left:20px;">
+    <div class="menu-item">Mission Name: MarsHub</div>
+    <div class="menu-item">Version: 1.0</div>
+    <div class="menu-item">Developer: The Outsider</div>
+    <!-- Add more as needed -->
+  </div>
+</div>
+  
+ 
+<div class="main-sections">
+  <section id="calendarSection">
+  <div class="container">
+    <div class="left-panel">
+      <div class="calendar">
+        <div class="months"></div>
+	  <div class="calendar-content">
+	    <div class="day-numbers"></div>
+	    <div class="grid"></div>
+	  </div>
+        <div class="legend">
+          <div><span class="dot red"></span> "Short Year" (every 5th year, 1 sol removed)</div>
+          <div><span class="dot yellow"></span> "Super Short Year" (every 50th year, 2 sols removed)</div>
+          <div><span class="dot green"></span> Current date</div>
+          <div><span class="dot blue"></span> Special date</div>
+        </div>
+        <div class="year-selector">
+          <button onclick="changeYear(-1)">&#9664;</button>
+          <span id="year-display">Year 29 (Martian year)</span>
+          <button onclick="changeYear(1)">&#9654;</button>
+        </div>
+
+        <textarea placeholder="Notes..."></textarea>
+      </div>
+    </div>
+  </section>
+  
+  <section id="converterSection">
+<div id="converter">
+  <h2>Remyan Calendar Converter</h2>
+
+  <!-- Earth to Remyan -->
+  <div class="converter-section">
+    <label for="earthDate">Earth Date (YYYY-MM-DD):</label><br />
+    <input type="date" id="earthDate" />
+    <input type="time" id="earthTime" value="00:00" step="1" /> <!-- HH:mm:ss -->
+    <br />
+    <button onclick="convertEarthToRemyan()">Convert to Remyan</button>
+    <p id="remyanResult"></p>
+    <h3>Use landing dates of:</h3>
+<div class="landing-buttons">
+  <button onclick="setEarthDate('2021-05-14')" data-tippy-content='<a href="https://en.wikipedia.org/wiki/Tianwen-1" target="_blank"><img src="img/tianwen-1.png"></a><br>Tianwen-1 Wiki'> Tianwen-1</button>
+
+  <button onclick="setEarthDate('2021-02-18')" data-tippy-content='<a href="https://science.nasa.gov/mission/mars-2020-perseverance/" target="_blank"><img src="img/perseverance.png"></a><br>NASA rover mission to explore Jezero Crater.'> Perseverance</button>
+
+  <button onclick="setEarthDate('2018-11-26')" data-tippy-content='<a href="https://science.nasa.gov/mission/insight/" target="_blank"><img src="img/insight.png"></a><br>NASA lander focused on Martian seismic activity.'> Insight</button>
+
+  <button onclick="setEarthDate('2012-08-06')" data-tippy-content='<a href="https://science.nasa.gov/mission/msl-curiosity/" target="_blank"><img src="img/curiosity.png"></a><br>Curiosity rover exploring Gale Crater since 2012.'> Curiosity</button>
+
+  <button onclick="setEarthDate('2008-05-25')" data-tippy-content='<a href="https://science.nasa.gov/mission/mars-phoenix/" target="_blank"><img src="img/phoenix.png"></a><br>Phoenix lander analyzed polar ice and soil.'> Phoenix</button>
+
+  <button onclick="setEarthDate('2004-01-25')" data-tippy-content='<a href="https://science.nasa.gov/mission/mer-opportunity/" target="_blank"><img src="img/opportunity.png"></a><br>Opportunity rover explored Meridiani Planum and lasted nearly 15 years.'> Opportunity</button>
+
+  <button onclick="setEarthDate('2004-01-04')" data-tippy-content='<a href="https://science.nasa.gov/mission/mer-spirit/" target="_blank"><img src="img/spirit.png"></a><br>Spirit rover explored Gusev Crater and discovered evidence of past water.'> Spirit</button>
+
+  <button onclick="setEarthDate('1997-07-04')" data-tippy-content='<a href="https://science.nasa.gov/mission/mars-pathfinder/" target="_blank"><img src="img/pathfinder.png"></a><br>Pathfinder mission included the Sojourner rover, exploring Ares Vallis.'> Pathfinder</button>
+
+  <button onclick="setEarthDate('1976-09-03')" data-tippy-content='<a href="https://science.nasa.gov/mission/viking/" target="_blank"><img src="img/viking2.png"></a><br>Viking Lander 2 studied the Martian surface and atmosphere at Utopia Planitia.'> Viking Lander 2</button>
+
+  <button onclick="setEarthDate('1976-07-20')" data-tippy-content='<a href="https://science.nasa.gov/mission/viking/" target="_blank"><img src="img/viking1.png"></a><br>Viking Lander 1 conducted experiments at Chryse Planitia, searching for life.'> Viking Lander 1</button>
+
+  <button onclick="setEarthDate('1971-12-02')" data-tippy-content='<a href="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1971-049A" target="_blank"><img src="img/mars3.png"></a><br>Mars 3 was the first spacecraft to achieve a soft landing on Mars.'> Mars 3</button>
+
+  <button onclick="setEarthDate('1971-11-27')" data-tippy-content='<a href="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1971-045D" target="_blank"><img src="img/mars2.png"></a><br>Mars 2 crash-landed but delivered the first human-made object to Mars.'> Mars 2</button>
+</div>
+  </div>
+  <hr>
+  <!-- Remyan to Earth -->
+  <div class="converter-section">
+    <label for="remyanYear">Remyan Date (Sol / Month / Year):</label><br />
+    <input type="number" id="remyanSol" placeholder="Sol" min="1" />
+    <input type="number" id="remyanMonth" placeholder="Month" min="1" max="24" />
+    <input type="number" id="remyanYear" placeholder="Year" min="1" />
+    <input type="time" id="remyanTime" value="00:00" step="1" /> <!-- HH:mm:ss -->
+    <br />
+    <button onclick="convertRemyanToEarth()">Convert to Earth</button>
+    <p id="earthResult"></p>
+  </div>
+</div>
+  </section>
+  
+  <section id="clockSection">
+    <div class="right-panel">
+<div id="mars3DContainer" style="width: 100%; height: 500px;"></div>
+      <div class="digital-clocks">
+        <div class="digital-time" id="mars-time">00:00:00 Mars RMT </div>
+        <div class="digital-time small" id="earth-time">00:00:00 Earth UTC </div>
+      </div>
+      <canvas id="analog-clock" width="500" height="500"></canvas>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <p>&copy; 2025 Marshub. All rights reserved.</p>
+</footer>
+
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
+
+  <script>
+    // marsClock.js
+
+// Constants
+const EARTH_START_DATE = new Date('1971-11-12T00:00:00Z'); // Sol 1, Year 1 on Earth
+const MARTIAN_SOL_DURATION_MS = 88775244; // 1 Sol = 24h 39m 35.244s = 88,775.244 seconds = ms
+
+// Calendar structure
+const BASE_MONTHS = [
+  28, 28, 28, 28, 28, 28, 28, 27,
+  28, 28, 28, 28, 28, 28, 28, 27,
+  28, 28, 28, 28, 28, 28, 28, 27
+];
+
+function getCurrentMarsTime() {
+  const now = new Date();
+  const elapsedMs = now - EARTH_START_DATE;
+  const totalSols = elapsedMs / MARTIAN_SOL_DURATION_MS;
+
+  // Get whole Sols and fraction of Sol
+  const solNumber = Math.floor(totalSols) + 1; // Start from Sol 1
+  const solFraction = totalSols - Math.floor(totalSols);
+
+  // Time of day (0 - 24 Martian hours)
+  const marsHours = solFraction * 24;
+  const hours = Math.floor(marsHours);
+  const minutes = Math.floor((marsHours - hours) * 60);
+  const seconds = Math.floor(((marsHours - hours) * 60 - minutes) * 60);
+
+  // Determine Year, Month, Day
+  const { year, month, solInMonth } = calculateDateFromSol(solNumber);
+
+  return {
+    year,
+    month: month + 1, // For display (1-indexed)
+    sol: solInMonth,
+    hours,
+    minutes,
+    seconds
+  };
+}
+
+function calculateDateFromSol(solNumber) {
+  let year = 1;
+  let solCount = solNumber;
+
+  // Leap year rules
+  const isShortYear = y => (y % 5 === 0);
+  const isSuperShortYear = y => (y % 50 === 0);
+
+  // Calculate year
+  while (true) {
+    let yearLength = 669;
+    if (isShortYear(year)) yearLength -= 1; // Remove 1 sol every 5th year
+    if (isSuperShortYear(year)) yearLength -= 1; // Remove 1 more sol every 50th year
+
+    if (solCount > yearLength) {
+      solCount -= yearLength;
+      year++;
+    } else {
+      break;
+    }
+  }
+
+  // Calculate month & sol within month
+  let months = [...BASE_MONTHS];
+
+  // Apply leap sol removals for this year
+  if (isShortYear(year)) months[11] -= 1; // 12th month becomes 27 sols
+  if (isSuperShortYear(year)) months[22] -= 1; // 23rd month becomes 27 sols
+
+  let month = 0;
+  while (solCount > months[month]) {
+    solCount -= months[month];
+    month++;
+  }
+
+  return {
+    year,
+    month,
+    solInMonth: solCount
+  };
+}
+
+function updateMarsAndEarthClocks() {
+  const marsTime = getCurrentMarsTime();
+
+  // Mars digital clock display
+  const marsClock = document.getElementById('mars-time');
+  marsClock.innerText = `
+    ${String(marsTime.hours).padStart(2, '0')}:
+    ${String(marsTime.minutes).padStart(2, '0')}:
+    ${String(marsTime.seconds).padStart(2, '0')}
+  `.replace(/\n/g, '').trim();
+
+  // Earth UTC clock display
+  const earthClock = document.getElementById('earth-time');
+  const nowUTC = new Date();
+  earthClock.innerText = `
+    ${String(nowUTC.getUTCHours()).padStart(2, '0')}:
+    ${String(nowUTC.getUTCMinutes()).padStart(2, '0')}:
+    ${String(nowUTC.getUTCSeconds()).padStart(2, '0')}
+  `.replace(/\n/g, '').trim();
+
+  // Update analog clock based on Mars time
+  drawAnalogClock(marsTime.hours, marsTime.minutes, marsTime.seconds);
+}
+
+function drawAnalogClock(hours, minutes, seconds) {
+  const canvas = document.getElementById('analog-clock');
+  const ctx = canvas.getContext('2d');
+  const radius = canvas.height / 2;
+  ctx.translate(radius, radius);
+
+  ctx.clearRect(-radius, -radius, canvas.width, canvas.height);
+
+  // Draw outer circle
+  ctx.beginPath();
+  ctx.arc(0, 0, radius * 0.95, 0, 2 * Math.PI);
+  ctx.fillStyle = 'black';
+  ctx.fill();
+
+  // Draw tick marks
+  for (let i = 0; i < 60; i++) {
+    const angle = i * Math.PI / 30;
+    const length = (i % 5 === 0) ? radius * 0.1 : radius * 0.05;
+    ctx.beginPath();
+    ctx.moveTo(
+      Math.cos(angle) * (radius * 0.9),
+      Math.sin(angle) * (radius * 0.9)
+    );
+    ctx.lineTo(
+      Math.cos(angle) * (radius * 0.9 - length),
+      Math.sin(angle) * (radius * 0.9 - length)
+    );
+    ctx.strokeStyle = 'white';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  }
+
+  // Draw hour hand
+  const hourAngle = ((hours % 12) + minutes / 60) * Math.PI / 6;
+  ctx.beginPath();
+  ctx.moveTo(0, 0);
+  ctx.lineTo(Math.cos(hourAngle - Math.PI / 2) * (radius * 0.5),
+             Math.sin(hourAngle - Math.PI / 2) * (radius * 0.5));
+  ctx.strokeStyle = 'white';
+  ctx.lineWidth = 6;
+  ctx.stroke();
+
+  // Draw minute hand
+  const minuteAngle = (minutes + seconds / 60) * Math.PI / 30;
+  ctx.beginPath();
+  ctx.moveTo(0, 0);
+  ctx.lineTo(Math.cos(minuteAngle - Math.PI / 2) * (radius * 0.75),
+             Math.sin(minuteAngle - Math.PI / 2) * (radius * 0.75));
+  ctx.strokeStyle = 'white';
+  ctx.lineWidth = 4;
+  ctx.stroke();
+
+  // Draw second hand
+  const secondAngle = seconds * Math.PI / 30;
+  ctx.beginPath();
+  ctx.moveTo(0, 0);
+  ctx.lineTo(Math.cos(secondAngle - Math.PI / 2) * (radius * 0.85),
+             Math.sin(secondAngle - Math.PI / 2) * (radius * 0.85));
+  ctx.strokeStyle = 'red';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  ctx.setTransform(1, 0, 0, 1, 0, 0); // Reset transform for next draw
+}
+
+// Start the clock updates
+setInterval(updateMarsAndEarthClocks, 1000);
+    //________________________________________________________________________________________________________________________________________________________________________
+  </script>
+  
+  <script>
+     //CALENDAR
+    // Martian Calendar with Notes, Alerts, and Superior Conjunctions
+const monthsContainer = document.querySelector('.months');
+const gridContainer = document.querySelector('.grid');
+const yearDisplay = document.getElementById('year-display');
+const dayNumbersContainer = document.querySelector('.day-numbers');
+const marsTimeNow = getCurrentMarsTime();
+let currentYear = marsTimeNow.year;
+
+// Store notes & alerts in memory and persist with localStorage
+const notes = {};
+const alerts = {};
+let selectedDateKey = null;
+
+// === LOCAL STORAGE ===
+function loadFromLocalStorage() {
+  const storedNotes = localStorage.getItem('martianCalendarNotes');
+  const storedAlerts = localStorage.getItem('martianCalendarAlerts');
+
+  if (storedNotes) Object.assign(notes, JSON.parse(storedNotes));
+  if (storedAlerts) Object.assign(alerts, JSON.parse(storedAlerts));
+}
+
+function saveToLocalStorage() {
+  localStorage.setItem('martianCalendarNotes', JSON.stringify(notes));
+  localStorage.setItem('martianCalendarAlerts', JSON.stringify(alerts));
+}
+
+// === SUPERIOR CONJUNCTIONS ===
+const earthOrbitalPeriod = 365.256;
+const marsOrbitalPeriod = 686.980;
+const synodicPeriod = 1 / Math.abs((1 / earthOrbitalPeriod) - (1 / marsOrbitalPeriod)); // ~779.94 days
+const solDurationEarthDays = 1.027491252;
+const solsPerMartianYear = 668.6;
+
+function calculateSuperiorConjunctions(startYear, endYear) {
+  const conjunctions = [];
+  let earthDate = new Date('1972-09-05'); // Epoch known conjunction
+  let martianYear = startYear;
+
+  while (martianYear <= endYear) {
+    const solsSinceEpoch = (earthDate - new Date('1971-11-12')) / (1000 * 60 * 60 * 24) / solDurationEarthDays;
+    const totalMartianYears = solsSinceEpoch / solsPerMartianYear;
+    const year = Math.floor(totalMartianYears) + 1;
+    const solOfYear = Math.round(solsSinceEpoch % solsPerMartianYear);
+
+    const month = Math.floor(solOfYear / 28) + 1;
+    const sol = (solOfYear % 28) + 1;
+
+    const distanceAU = 2.68;
+    const distanceKM = Math.round(distanceAU * 149597870.7);
+
+    conjunctions.push({ year, month, sol, distanceAU, distanceKM });
+
+    earthDate.setDate(earthDate.getDate() + Math.round(synodicPeriod));
+    martianYear = year;
+  }
+
+  return conjunctions;
+}
+
+const conjunctionEvents = calculateSuperiorConjunctions(12, 100);
+
+function isSuperiorConjunction(year, month, sol) {
+  return conjunctionEvents.find(event =>
+    year === event.year && month === event.month && sol === event.sol
+  );
+}
+
+// === CALENDAR BUILDER ===
+function buildCalendar(year) {
+  monthsContainer.innerHTML = '';
+  gridContainer.innerHTML = '';
+  dayNumbersContainer.innerHTML = '';
+
+  // Add day numbers (1-28)
+  for (let day = 1; day <= 28; day++) {
+    const dayDiv = document.createElement('div');
+    dayDiv.textContent = String(day).padStart(2, '0');
+    dayNumbersContainer.appendChild(dayDiv);
+  }
+
+  const marsNow = getCurrentMarsTime();
+  const monthNames = Array.from({ length: 24 }, (_, i) => `${i + 1}`);
+
+  monthNames.forEach(month => {
+    const monthLabel = document.createElement('span');
+    monthLabel.innerText = month;
+    monthsContainer.appendChild(monthLabel);
+  });
+
+  const monthLengths = [
+    28, 28, 28, 28, 28, 28, 28, 27,
+    28, 28, 28, 28, 28, 28, 28, 27,
+    28, 28, 28, 28, 28, 28, 28, 27
+  ];
+
+  if (year % 5 === 0) monthLengths[11] = 27;
+  if (year % 50 === 0) monthLengths[22] = 27;
+
+  for (let row = 1; row <= 28; row++) {
+    for (let col = 0; col < 24; col++) {
+      const cell = document.createElement('div');
+      const key = `${year}-${col + 1}-${row}`;
+      const conjunction = isSuperiorConjunction(year, col + 1, row);
+
+      if (row > monthLengths[col]) {
+        cell.style.opacity = '0.1';
+        cell.classList.add('inactive');
+      } else {
+        // === Special Events ===
+        if (conjunction) {
+          cell.classList.add('grey');
+          cell.setAttribute('title', `Superior Conjunction\nDistance: ${conjunction.distanceAU} AU (${conjunction.distanceKM.toLocaleString()} km)`);
+        }
+
+        if (year === marsNow.year && col === marsNow.month - 1 && row === marsNow.sol) {
+          cell.classList.add('green');
+        }
+
+        if (col === 0 && row === 21) {
+          cell.classList.add('blue');
+        }
+
+        if (col === 11 && row === 15) {
+          cell.classList.add('blue');
+        }
+
+        if (col === 11 && row === 28) {
+          cell.classList.add('red');
+        }
+
+        if (col === 22 && row === 28) {
+          cell.classList.add('yellow');
+        }
+
+        // Mark specific grid cells
+        if (col === 22 && row === 28) {
+          cell.classList.add('darkgey');
+        }
+
+        // Mark conjunction days in color #1e1e1e
+        const conjunctionDays = [
+          { col: 21, row: 18 },
+          { col: 15, row: 12 },
+          { col: 10, row: 8 },
+          // Add more conjunction dates here (col/row format)
+        ];
+
+        conjunctionDays.forEach(day => {
+          if (col === day.col && row === day.row) {
+            cell.style.backgroundColor = '#1e1e1e';
+          }
+        });
+
+        // === Notes & Alerts ===
+        if (notes[key]) {
+          cell.classList.add('note');
+        }
+
+        if (alerts[key]) {
+          cell.classList.add('alert');
+        }
+
+        if (selectedDateKey === key) {
+          cell.classList.add('selected');
+        }
+
+        // === Interactivity ===
+        cell.addEventListener('click', () => {
+          selectedDateKey = key;
+          openNoteEditor(year, col + 1, row);
+        });
+      }
+
+      gridContainer.appendChild(cell);
+    }
+  }
+
+tippy('.grid div.grey', {
+  content(reference) {
+    return reference.getAttribute('title');
+  },
+  placement: 'top',
+  arrow: true,
+  theme: 'light',
+});
+
+  yearDisplay.textContent = `Year ${year} (Martian year)`;
+}
+
+function changeYear(delta) {
+  currentYear += delta;
+  buildCalendar(currentYear);
+}
+
+// === NOTE EDITOR ===
+function openNoteEditor(year, month, sol) {
+  const key = `${year}-${month}-${sol}`;
+  const currentNote = notes[key] || '';
+
+  const note = prompt(`Enter a note for Year ${year}, Month ${month}, Sol ${sol}:`, currentNote);
+
+  if (note !== null) {
+    if (note.trim() === '') {
+      delete notes[key];
+    } else {
+      notes[key] = note.trim();
+      sendEmailNotification(year, month, sol, note.trim());
+    }
+    saveToLocalStorage();
+    buildCalendar(currentYear);
+  }
+}
+
+// === EMAIL NOTIFICATION ===
+function sendEmailNotification(year, month, sol, note) {
+  const payload = {
+    to: 'jeanerolle97@gmail.com',
+    subject: `Reminder for Year ${year}, Month ${month}, Sol ${sol}`,
+    body: `You have a note on Year ${year}, Month ${month}, Sol ${sol}: ${note}`
+  };
+
+  console.log('Sending email notification...', payload);
+
+  // Placeholder for actual email service integration
+  console.log(`Email Notification: Note set for Year ${year}, Month ${month}, Sol ${sol}: "${note}"`);
+}
+
+// === INITIALIZE ===
+loadFromLocalStorage();
+buildCalendar(currentYear);
+  </script>
+
+
+
+  
+  <script>
+// Reference date: 1971-11-12 (Sol 0)
+const referenceDate = new Date('1971-11-12T00:00:00Z');
+
+function dateToSol(dateStr) {
+  const targetDate = new Date(dateStr + 'T00:00:00Z');
+  const diffInMs = targetDate - referenceDate;
+  const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+  const sols = diffInDays / 1.02749125;
+  return Math.round(sols);
+}
+
+// Load and process conjunctions JSON
+import conjunctions from 'conjunctions_1900_2200.json';
+
+const conjunctionData = conjunctions.map(event => {
+  const startSol = dateToSol(event.startDate);
+  const endSol = dateToSol(event.endDate);
+  const durationSols = endSol - startSol;
+
+  return {
+    startDate: event.startDate,
+    endDate: event.endDate,
+    startSol,
+    endSol,
+    durationSols,
+    distanceAU: event.distanceAU,
+    distanceKM: event.distanceKM
+  };
+});
+
+function markConjunctionOnCalendar(gridCells) {
+  conjunctionData.forEach(conjunction => {
+    for (let sol = conjunction.startSol; sol <= conjunction.endSol; sol++) {
+      const cell = gridCells[sol];
+      if (cell) {
+        cell.style.backgroundColor = '#1e1e1e';
+        cell.setAttribute('title', `Superior Conjunction\nDistance: ${conjunction.distanceAU} AU (${conjunction.distanceKM.toLocaleString()} km)`);
+      }
+    }
+  });
+}
+
+console.log('Conjunction Data:', conjunctionData);
+  </script>
+
+  <script src="js/converter.js"></script>
+
+<script>
+  //3D Animation
+  let scene, camera, renderer, mars, clock;
+
+function initMars3D() {
+  const container = document.getElementById('mars3DContainer');
+
+  // Scene setup
+  scene = new THREE.Scene();
+  camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+  renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+  renderer.setSize(container.clientWidth, container.clientHeight);
+  container.appendChild(renderer.domElement);
+
+  // Lighting
+  const light = new THREE.DirectionalLight(0xffffff, 1);
+  light.position.set(50, 50, 50);
+  scene.add(light);
+
+  const ambientLight = new THREE.AmbientLinght(0x333333, objToRender == "mars" ? 5 : 1);
+  scene.add(ambientLight);
+
+  // Load Mars Model
+  const loader = new THREE.GLTFLoader();
+  loader.load('models/mars.glb', function(gltf) {
+    mars = gltf.scene;
+    scene.add(mars);
+  }, undefined, function(error) {
+    console.error('An error happened while loading mars.glb', error);
+  });
+
+  camera.position.z = 3;
+  clock = new THREE.Clock();
+
+  animate();
+}
+
+function animate() {
+  requestAnimationFrame(animate);
+
+  if (mars) {
+    const elapsed = clock.getElapsedTime();
+    mars.rotation.y = (elapsed / 60) * Math.PI * 2; // 360° in 60 seconds
+  }
+
+  renderer.render(scene, camera);
+}
+
+window.addEventListener('resize', () => {
+  const container = document.getElementById('mars3DContainer');
+  camera.aspect = container.clientWidth / container.clientHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(container.clientWidth, container.clientHeight);
+});
+
+// Initialize on page load
+window.addEventListener('DOMContentLoaded', initMars3D);
+
+animate();
+</script>
+
+<script>
+//Side-bar
+    const sidebarButton = document.getElementById('sidebarButton');
+    const sidebar = document.getElementById('sidebar');
+    const leftSidebarButton = document.getElementById('infoSidebarButton');
+    const leftSidebar = document.getElementById('infoSidebar');
+
+    sidebarButton.addEventListener('click', (event) => {
+      event.stopPropagation(); // Prevent body click handler from firing
+      sidebar.classList.toggle('show');
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!sidebar.contains(event.target) && !sidebarButton.contains(event.target)) {
+        sidebar.classList.remove('show');
+      }
+    });
+</script>
+  
+<script>
+tippy('.landing-buttons button', {
+  placement: 'bottom',
+  arrow: true,
+  theme: 'light-border',
+  animation: 'fade', // fade is smoother than scale for tooltips
+  inertia: true, // adds a gentle movement
+  duration: [400, 250], // slower in, smoother out
+  delay: [100, 50], // shorter delay on leave
+  offset: [0, 10], // push tooltip a bit further down
+  allowHTML: true,
+  interactive: true,
+  hideOnClick: false,
+});
+</script>
+
+</body>
+</html>
