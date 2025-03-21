@@ -1,0 +1,131 @@
+  /*CALENDAR*/
+  .calendar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calendar-row {
+  display: flex;
+}
+
+.calendar-content {
+  display: flex;
+}
+
+.day-numbers {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 5px;
+}
+
+.day-numbers div {
+  height: 20px; /* Must match grid cell height */
+  text-align: right;
+  padding-right: 5px;
+  font-size: 0.8em;
+  color: #ccc;
+}
+
+.months {
+  display: flex;
+  justify-content: center;
+  width: 530px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.months span {
+  flex: 1;
+  font-size: 0.8em;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(24, 20px);
+  gap: 2px;
+}
+
+.grid div {
+  width: 20px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.grid div:hover {
+  width: 20.1px;
+  height: 20.1px;
+  background-color: #a6a6a6;
+  border-radius: 5px;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.grid div.green {
+  background-color: #24b24c !important;
+}
+
+.grid div.blue {
+  background-color: #0059a9 !important;
+}
+
+.grid div.red {
+  background-color: #ff3131 !important;
+}
+
+.grid div.yellow {
+  background-color: #ffcc00 !important;
+}
+
+.legend {
+  margin-top: 10px;
+  font-size: 0.8em;
+}
+
+.legend .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.red { background-color: #ff3131; }
+.yellow { background-color: #ffcc00; }
+.green { background-color: #24b24c; }
+.blue { background-color: #0059a9; }
+
+.year-selector {
+  margin-top: 10px;
+}
+
+.year-selector button {
+  background-color: #333;
+  color: white;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.year-selector span {
+  margin: 0 10px;
+}
+
+textarea {
+  width: 90%;
+  height: 100px;
+  margin-top: 10px;
+  background-color: #111;
+  color: white;
+  border: 1px solid #333;
+  padding: 10px;
+}
+
+.selected {
+  background-color: #666 !important;
+}
