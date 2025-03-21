@@ -49,3 +49,9 @@ async def app(scope, receive, send):
         'type': 'http.response.body',
         'body': b'Hello, world!',
     })
+
+@app.get("/api/conjunctions")
+def read_conjunctions():
+    with open("data/conjunctions_1900_2200.json", "r") as f:
+        data = json.load(f)
+    return data
