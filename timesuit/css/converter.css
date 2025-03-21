@@ -1,0 +1,70 @@
+  /*CONVERTER*/
+  #converter {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  color: #fefefe;
+  text-align: center;
+  margin-bottom: 90px;
+}
+
+#converter h2 {
+  margin-bottom: 15px;
+}
+
+.converter-section {
+  margin-bottom: 20px;
+}
+
+.converter-section input {
+  background-color: #222;
+  color: white;
+  border: 1px solid #555;
+  padding: 8px;
+  margin: 5px;
+  border-radius: 4px;
+}
+
+.converter-section input[type="date"] {
+  width: 60%;            /* Date input a bit wider */
+}
+
+.converter-section button {
+  background: linear-gradient(145deg, #1a1a1a, #222);
+  color: white;
+  border: 1px solid #555;
+  padding: 8px 14px;
+  margin-top: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.converter-section button:hover {
+  background: linear-gradient(145deg, #222, #2a2a2a);
+  transform: translateY(-2px);
+}
+
+.landing-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.landing-buttons button {
+  width: 100%;
+  background: linear-gradient(145deg, #1a1a1a, #222);
+  color: white;
+  border: 1px solid #555;
+  padding: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 11px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.landing-buttons button:hover {
+  background: linear-gradient(145deg, #222, #2a2a2a);
+  transform: translateY(-2px);
+}
