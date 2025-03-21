@@ -7,6 +7,7 @@
 <link rel="icon" type="image/x-icon" href="../img/logo_2.ico" />
 <link rel="stylesheet" href="../css/styles.css" />
 <link rel="stylesheet" href="../css/library.css" />
+<link rel="stylesheet" href="../css/searchBar.css" />
 </head>
 
 <body>
@@ -55,15 +56,13 @@
     </div>
   </div>
 
-<div id="searchContainer">
-  <input 
-    type="text" 
-    id="searchInput" 
-    placeholder="Search Mars Library..." 
-    onkeyup="handleSearch(event)"
-  />
-  <button onclick="searchLibrary()">Search</button>
-</div>
+  <div class="search-container">
+    <input type="text" id="yearFilter" class="search-input" placeholder="Year (optional)" style="max-width: 100px;">
+    <input type="text" id="journalFilter" class="search-input" placeholder="Journal (optional)" style="max-width: 200px;">
+    <input type="text" id="searchInput" class="search-input" placeholder="Search terms..." />
+    <button class="search-button" id="searchButton">Search</button>
+    <div id="autocompleteList" class="autocomplete-list"></div>
+  </div>
 
   <!------------ Mars Library Section ------------>
 <div id="marsLibrary">
@@ -88,7 +87,7 @@
 
 <script src="../backend/server.js"></script>
 <script src="../backend/library.js"></script>
-<script src="../js/MeiliSearch.js"></script>
+<script src="../js/searchBar.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/examples/js/loaders/GLTFLoader.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/examples/js/controls/OrbitControls.js"></script>
