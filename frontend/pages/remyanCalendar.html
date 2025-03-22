@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Earth & Mars Orbit Animation</title>
-<link rel="icon" type="image/x-icon" href="../img/logo_2.ico" />
+<link rel="icon" type="image/x-icon" href="../public/logo_2.ico" />
 <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css" />
 <link rel="stylesheet" href="../css/styles.css" />
-<link rel="stylesheet" href="css/marsClock.css" />
-<link rel="stylesheet" href="css/marsCalendar.css" />
-<link rel="stylesheet" href="css/converter.css" />
+<link rel="stylesheet" href="../css/marsClock.css" />
+<link rel="stylesheet" href="../css/marsCalendar.css" />
+<link rel="stylesheet" href="../css/converter.css" />
 
 <style>
   /*INDEX*/
@@ -137,43 +137,43 @@ footer {
 <div id="siteTitle"><img src="../img/5.png" style="height: 1.5rem;"></img>Marshub Timesuit</div>
 
 <!-- RemyanCalendar button -->
-<button id="calendarButton" onclick="goToRemyanCalendar()"  data-tippy-content="Remyan Calendar">
-  <img src="../img/botton_c2.png" alt="Remyan Calendar Button">
+<button id="calendarButton" data-tippy-content="Remyan Calendar">
+  <a href="pages/remyanCalendar.html"><img src="../public/img/botton_c2.png" alt="Remyan Calendar Button"></img></a>
 </button>
 
   <!-- Sidebar Button -->
   <button id="sidebarButton" data-tippy-content="Open Menu">
-    <img src="../img/botton_c2.png" alt="Sidebar Button">
+    <img src="../public/img/botton_c2.png" alt="Sidebar Button">
   </button>
 
   <!-- Sidebar -->
   <div id="sidebar" class="sidebar">
-    <h2 style="color:white; text-align:center;"><a href="../pages/index.html"><img src="../img/5.png" style="width: 50%;"></img></a><br />Menu <hr /></h2>
+    <h2 style="color:white; text-align:center;"><a href="../index.html"><img src="../public/img/5.png" style="width: 50%;"></img></a><br />Menu <hr /></h2>
     <div style="color:white; padding-left:20px;">
         <div class="menu-item">
-      <p><a href="../pages/solar-system.html">Full Solar-System</a></p>
+      <p><a href="solar-system.html">Full Solar-System</a></p>
         </div>
         <div class="menu-item">
-      <p><a href="../pages/nasa.html"><img src="../img/NASA.png" style="width: 75%;"></img></a></p>
+      <p><a href="nasa.html"><img src="../public/img/NASA.png" style="width: 75%;"></img></a></p>
         </div>
         <div class="menu-item">
-      <p><a href="../pages/spacex.html"><img src="../img/SpaceX.png" style="width: 75%;"></img></a></p>
+      <p><a href="spacex.html"><img src="../public/img/SpaceX.png" style="width: 75%;"></img></a></p>
         </div>
         <div class="menu-item">
-      <p><a href="../pages/r-space.html"><img src="../img/r-space.png" style="width: 75%;"></img></a></p>
+      <p><a href="r-space.html"><img src="../public/img/r-space.png" style="width: 75%;"></img></a></p>
         </div>
         <div class="menu-item">
-      <p><a href="../pages/library.html"><img src="../img/library.png" style="width: 75%;"></img></a></p>
+      <p><a href="library.html"><img src="../public/img/library.png" style="width: 75%;"></img></a></p>
         </div>
         <div class="menu-item">
-      <p><a href="https://www.github.com/The-Outsider-97/MarsHub"><img src="../img/github.png" style="width: 75%;"></img></a></p>
+      <p><a href="https://www.github.com/The-Outsider-97/MarsHub"><img src="../public/img/github.png" style="width: 75%;"></img></a></p>
         </div>
     </div>
   </div>
 
   <!-- Left Sidebar Button -->
-<button id="infoSidebarButton"  data-tippy-content="Open Info Menu>
-  <img src="../img/botton_c2.png" alt="Basic Info Button">
+<button id="infoSidebarButton" data-tippy-content="Open Info Menu>
+  <img src="../public/img/botton_c2.png" alt="Basic Info Button">
 </button>
 
 <!-- Left Sidebar -->
@@ -816,9 +816,7 @@ animate();
 </script>
 
 <script>
-//Side-bar
-    const sidebarButton = document.getElementById('sidebarButton');
-    const sidebar = document.getElementById('sidebar');
+//Left side-bar
     const leftSidebarButton = document.getElementById('infoSidebarButton');
     const leftSidebar = document.getElementById('infoSidebar');
 
