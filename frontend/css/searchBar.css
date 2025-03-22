@@ -1,7 +1,8 @@
     .search-container {
       position: relative;
+      margin-top: 70px;
       margin-left: 20px;
-      width: 600px;
+      width: 500px;
       display: flex;
       align-items: center;
       gap: 5px;
