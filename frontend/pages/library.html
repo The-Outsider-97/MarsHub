@@ -4,58 +4,75 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Earth & Mars Orbit Animation</title>
-<link rel="icon" type="image/x-icon" href="../img/logo_2.ico" />
+<link rel="icon" type="image/x-icon" href="../public/logo_2.ico" />
 <link rel="stylesheet" href="../css/styles.css" />
 <link rel="stylesheet" href="../css/library.css" />
 <link rel="stylesheet" href="../css/searchBar.css" />
+
+<style>
+#siteTitle {
+  position: fixed;
+  margin-top: 20px;
+  margin-left: 20px;
+  top: 10px;
+  left: 10px;
+  font-family: Butler, sans-serif;
+  font-size: 1.5rem;
+  color: white;
+  z-index: 5;
+}
+</style>
 </head>
 
 <body>
 <!-- Loading Overlay -->
+
 <div id="loadingOverlay">
   <video autoplay muted loop class="loader-media">
     <source src="../vid/loadingBook.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
-  <p>Loading Library...</p>
 </div>
 
-<br/><br/><br/><br/><br/><br/>
 <!-- RemyanCalendar button -->
 <button id="calendarButton" onclick="goToRemyanCalendar()">
-  <img src="../img/botton_c2.png" alt="Remyan Calendar Button">
+  <img src="../public/img/botton_c2.png" alt="Remyan Calendar Button">
 </button>
+
 
   <!-- Sidebar Button -->
   <button id="sidebarButton">
-    <img src="../img/botton_c2.png" alt="Sidebar Button">
+    <img src="../public/img/botton_c2.png" alt="Sidebar Button">
   </button>
 
   <!-- Sidebar -->
   <div id="sidebar" class="sidebar">
-    <h2 style="color:white; text-align:center;"><a href="index.html"><img src="../img/5.png" style="width: 50%;"></img></a><br />Menu <hr /></h2>
+    <h2 style="color:white; text-align:center;"><a href="index.html"><img src="../public/img/5.png" style="width: 50%;"></img></a><br />Menu <hr /></h2>
     <div style="color:white; padding-left:20px;">
         <div class="menu-item">
       <p><a href="solar-system.html">Full Solar-System</a></p>
         </div>
         <div class="menu-item">
-      <p><a href="nasa.html"><img src="../img/NASA.png" style="width: 75%;"></img></a></p>
+      <p><a href="nasa.html"><img src="../public/img/NASA.png" style="width: 75%;"></img></a></p>
         </div>
         <div class="menu-item">
-      <p><a href="spacex.html"><img src="../img/SpaceX.png" style="width: 75%;"></img></a></p>
+      <p><a href="spacex.html"><img src="../public/img/SpaceX.png" style="width: 75%;"></img></a></p>
         </div>
         <div class="menu-item">
-      <p><a href="r-space.html"><img src="../img/r-space.png" style="width: 75%;"></img></a></p>
+      <p><a href="r-space.html"><img src="../public/img/r-space.png" style="width: 75%;"></img></a></p>
         </div>
         <div class="menu-item">
-      <p><a href="library.html"><img src="../img/library.png" style="width: 75%;"></img></a></p>
+      <p><a href="library.html"><img src="../public/img/library.png" style="width: 75%;"></img></a></p>
         </div>
         <div class="menu-item">
-      <p><a href="https://www.github.com/The-Outsider-97/MarsHub"><img src="../img/github.png" style="width: 75%;"></img></a></p>
+      <p><a href="https://www.github.com/The-Outsider-97/MarsHub"><img src="../public/img/github.png" style="width: 75%;"></img></a></p>
         </div>
     </div>
   </div>
 
+  <!------------ Mars Library Section ------------>
+<div id="marsLibrary">
+<div id="siteTitle"><img src="../public/img/5.png" style="height: 1.5rem;"></img>Marshub Timesuit</div>
   <div class="search-container">
     <input type="text" id="yearFilter" class="search-input" placeholder="Year (optional)" style="max-width: 100px;">
     <input type="text" id="journalFilter" class="search-input" placeholder="Journal (optional)" style="max-width: 200px;">
@@ -63,10 +80,6 @@
     <button class="search-button" id="searchButton">Search</button>
     <div id="autocompleteList" class="autocomplete-list"></div>
   </div>
-
-  <!------------ Mars Library Section ------------>
-<div id="marsLibrary">
-  <h3>Research & Books</h3>
   <div id="libraryContainer">
     <p>Loading research papers and books...</p>
   </div>
@@ -85,8 +98,8 @@
   </div>
 </div>
 
-<script src="../backend/server.js"></script>
-<script src="../backend/library.js"></script>
+<script src="../backend/node-api/server.js"></script>
+<script src="../js/library.js"></script>
 <script src="../js/searchBar.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/examples/js/loaders/GLTFLoader.js"></script>
