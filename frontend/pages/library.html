@@ -35,10 +35,9 @@
 </div>
 
 <!-- RemyanCalendar button -->
-<button id="calendarButton" onclick="goToRemyanCalendar()">
-  <img src="../public/img/botton_c2.png" alt="Remyan Calendar Button">
+<button id="calendarButton" data-tippy-content="Remyan Calendar">
+  <a href="remyanCalendar.html"><img src="../public/img/botton_c2.png" alt="Remyan Calendar Button"></img></a>
 </button>
-
 
   <!-- Sidebar Button -->
   <button id="sidebarButton">
@@ -72,7 +71,7 @@
 
   <!------------ Mars Library Section ------------>
 <div id="marsLibrary">
-<div id="siteTitle"><img src="../public/img/5.png" style="height: 1.5rem;"></img>Marshub Timesuit</div>
+<div id="siteTitle"><img src="../public/img/5.png" style="height: 1.5rem;"></img> Marshub - Library</div>
   <div class="search-container">
     <input type="text" id="yearFilter" class="search-input" placeholder="Year (optional)" style="max-width: 100px;">
     <input type="text" id="journalFilter" class="search-input" placeholder="Journal (optional)" style="max-width: 200px;">
@@ -99,7 +98,7 @@
 </div>
 
 <script src="../backend/node-api/server.js"></script>
-<script src="../js/library.js"></script>
+<script src="../backend/node-api/library.js"></script>
 <script src="../js/searchBar.js"></script>
 <script src="../js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
@@ -128,23 +127,6 @@ initApp();
 <script>
 //Hover Tooltips
 div.setAttribute('title', item.description || 'No description available.');
-</script>
-
-<script>
-//Side-bar
-    const sidebarButton = document.getElementById('sidebarButton');
-    const sidebar = document.getElementById('sidebar');
-
-    sidebarButton.addEventListener('click', (event) => {
-      event.stopPropagation(); // Prevent body click handler from firing
-      sidebar.classList.toggle('show');
-    });
-
-    document.addEventListener('click', (event) => {
-      if (!sidebar.contains(event.target) && !sidebarButton.contains(event.target)) {
-        sidebar.classList.remove('show');
-      }
-    });
 </script>
 
 </body>
