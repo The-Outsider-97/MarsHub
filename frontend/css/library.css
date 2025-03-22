@@ -30,43 +30,9 @@ body {
   color: #fff;
 }
 
-#searchContainer {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  width: 320px;
-  display: flex;
-  gap: 8px;
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-}
-
-#searchInput {
-  flex-grow: 1;
-  padding: 8px;
-  border: none;
-  border-radius: 4px;
-  font-size: 14px;
-}
-
-#searchContainer button {
-  padding: 8px 12px;
-  background: linear-gradient(145deg, #1a1a1a, #222);
-  color: white;
-  border: 1px solid #555;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-#searchContainer button:hover {
-  background: linear-gradient(145deg, #222, #2a2a2a);
-}
-
 #libraryContainer {
   display: grid;
+  margin-top: 100px;
   grid-template-columns: repeat(6, 1fr);
   gap: 20px;
   padding: 20px;
