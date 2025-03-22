@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Earth & Mars Orbit Animation</title>
-<link rel="icon" type="image/x-icon" href="img/public/logo_2.ico" />
+<link rel="icon" type="image/x-icon" href="public/logo_2.ico" />
 <link rel="stylesheet" href="css/styles.css" />
 <link rel="stylesheet" href="css/news.css" />
 <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css" />
@@ -13,8 +13,8 @@
 <body>
 <canvas id="orbitCanvas"></canvas>
 <!-- RemyanCalendar button -->
-<button id="calendarButton" onclick="goToRemyanCalendar()" data-tippy-content="Remyan Calendar">
-  <img src="public/img/botton_c2.png" alt="Remyan Calendar Button">
+<button id="calendarButton" data-tippy-content="Remyan Calendar">
+  <a href="pages/remyanCalendar.html"><img src="public/img/botton_c2.png" alt="Remyan Calendar Button"></img></a>
 </button>
 
   <!-- Sidebar Button -->
@@ -99,30 +99,6 @@
 <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/examples/js/loaders/GLTFLoader.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/examples/js/controls/OrbitControls.js"></script>
-
-<script>
-  // Initialize tooltips on buttons
-  tippy('#calendarButton', {
-    content: 'Remyan Calendar',
-    placement: 'bottom',
-    theme: 'light-border'
-  });
-
-  tippy('#sidebarButton', {
-    content: 'Sidebar Menu',
-    placement: 'left',
-    theme: 'light-border'
-  });
-
-  // Initialize tooltips on sidebar menu items
-  tippy('.menu-item a', {
-    content(reference) {
-      return reference.getAttribute('href').replace('pages/', '').replace('.html', '').replace(/-/g, ' ').toUpperCase();
-    },
-    placement: 'left',
-    theme: 'light-border'
-  });
-</script>
 
 <script>
 async function fetchEphemeris(date) {
