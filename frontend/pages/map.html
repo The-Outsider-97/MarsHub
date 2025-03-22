@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mars Map Navigator</title>
-  <link rel="stylesheet" href="css/map.css" />
+  <link rel="stylesheet" href="../css/map.css" />
 </head>
 <body>
   <h1>Mars Map Navigator</h1>
@@ -17,16 +17,16 @@
     <input type="number" id="longitude" step="0.01" value="0" />
 
     <button onclick="goToLocation()">Go To Location</button>
-    <button onclick="toggleFullscreen()"><img src="img/full_s.png"></img></button>
+    <button onclick="toggleFullscreen()"><img src="../public/img/full_s.png"></img></button>
   </div>
 
   <div class="map-container" id="mapContainer">
     <div id="mapWrapper" style="position: absolute; top: 0; left: 0;">
-      <img src="img/8k_mars.jpg" alt="Mars Map" id="marsMap" />
+      <img src="../public/img/8k_mars.jpg" alt="Mars Map" id="marsMap" />
       <div class="marker" id="marker"></div>
     </div>
   </div>
 
-  <script src="js/map.js"></script>
+  <script src="../js/map.js"></script>
 </body>
 </html>
